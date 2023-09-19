@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Grafana setup with promethious and Nodeexporter</title>
+    <meta name="description" content="2D navigation demo" />
+    <meta name="author" content="Henrik Ingo" />
+    <link rel="icon" href="./images/grafanalogo.png">
+    <link href="../../css/impress-common.css" rel="stylesheet" />
+    <link href="css/presentation.css" rel="stylesheet" />
+</head>
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!-- Some images that are fixed to background in the css -->
+
+
+
+
+<div id="impress" data-transition-duration="1000">
+
+    <div class="step grafanalogo" data-scale="2" data-x="-500" data-y="-500">
+        
+        <h1>Grafana Setup</h1>
+        <p class="presented">Presented By:</p>
+        <div class="grafanawater">
+           
+            <img src="./images/grafanalogo.png" alt="">
+        </div>
+        
+            <table class="groupmember">
+                
+                <tr class="grm"><td class="taj maam">Er. Taj Fatima</td> </tr> 
+                <tr class="grm"><td class="himanshu maam">Er. Himansu</td></tr>
+                <tr class="grm"><td class="ankur maam">Er. Ankur</td></tr>
+                <tr class="grm"><td class="manish maam">Er. Manish</td></tr>
+                <tr class="grm"><td class="amit maam">Er. Amit Kumar</td></tr>
+            </table>
+            
+    </div>
+
+    <div id="contents" class="step" data-rel-x="1500" data-rel-y="1500" data-scale="1">
+        <h1 >Agenda</h1>
+        
+        <table class="agenda">
+         
+            <tr>
+                <td class="arrow" style="color: #625772;"> &#10148; </td>
+                <td class="cont" style="background-color: #625772;"> About Grafana</td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #085F63;">&#10148;</td>
+                <td class="cont"  style="background-color: #085F63;"> What is Infrastructure Monitoring? </td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #FF7E67;">&#10148; </td>
+                <td class="cont" style="background-color: #FF7E67"> Prometheus: The Heart of Monitoring</td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #247E6C;">&#10148; </td>
+                <td  class="cont" style="background-color: #247E6C;"> Node Exporter: Collecting System Metrics</td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #3498DB;">&#10148; </td>
+                <td class="cont" style="background-color: #3498DB;"> Grafana: Visualization and Alerting</td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #34495E;">&#10148;</td>
+                <td class="cont" style="background-color: #34495E;">Setting up Prometheus and Node Exporter</td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #FF9A00;">&#10148; </td>
+                <td class="cont" style="background-color: #FF9A00;"> Creating Dashboards in Grafana</td>
+            </tr>
+            <tr>
+                <td class="arrow" style="color: #FF165D;">&#10148;</td>
+                <td class="cont" style="background-color: #FF165D;"> Setting Alerts in Grafana</td>
+            </tr>
+           
+            <tr>
+                <td class="arrow" style="color: #F38181;">&#10148;</td>
+                <td class="cont" style="background-color: #F38181;"> Conclusion</td>
+            </tr>
+        </table>
+        
+    </div>
+
+    <!-- Ice cream slides (3) -->
+    <div id="grafana" class="step" data-x="2000" data-y="2000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="contents icecream-pro contents crisps">
+        <h1>About Grafana</h1>
+        <div class="grafanawater">
+           
+            <img src="./images/grafanalogo.png" alt="">
+        </div>
+        
+        <div class="aboutgrafana">
+            <div class="container">
+                <div class="typed-out" id="grafanadif">Grafana is an open-source data visualization and  monitoring tool that allows users to
+                     create interactive and <br> customizable dashboards for analyzing and displaying data from diverse sources.</div></div>
+                    
+                     <img class="image1" src="./images/grafanalogo.png" alt="">
+        </div>
+ </div>
+
+    <div id="icecream-pro" class="step" data-rel-x="0" data-rel-y="1000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="icecream icecream-con applepie crisps-pro">
+        <h1 onclick="infrusFunction()">What is Infrastructure Monitoring</h1>
+       
+        <div class="ingrastructurem">
+            <div class="container">
+                <div class="typed-out" id="ingrastructurem" style="display: none;"> Infrastructure monitoring is the process of tracking and managing the performance, availability, and health of <br>
+                     an organization's IT infrastructure, including servers, networks, databases, and other hardware and software components.<br> It involves real-time data 
+                      collection, analysis, and alerting to ensure the smooth operation of these systems, detect issues, <br> and prevent downtime. <br>
+                      
+                      <a href="./images/infrastructure-monitoring-diagram.avif"><img style="height: 400px; width: 600px;;" src="./images/infrastructure-monitoring-diagram.avif" alt=""></a>
+                </div></div>
+                    <ul class="ingr">
+                        <li>Real-Time Visibility</li>
+                        <li>Alerting and Notification</li>
+                        <li>Fault Detection</li>
+                        <li>Performance Optimization</li>
+                        <li>Security</li>
+                    </ul>
+                     
+        </div>
+          </div>
+
+
+    <div id="icecream-con" class="step" data-rel-x="0" data-rel-y="1000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="icecream-pro crisps applepie-pro crisps-con">
+        <h1 type="button" onclick="mypFunction()">Prometheus: The Heart of Monitoring</h1>
+        
+        <div id="demo" style="display: none;"> 
+                        <ul>
+
+                        <li>Manual war deployments are often slow and infrequent due to time-consuming manual testing and deployment processes.</li>
+                        <li>In larger development teams, integrating code changes from different developers can be challenging, leading to integration conflicts.             </li>
+                        <li>In case of issues with a release, rollbacks can be challenging and time-consuming.            </li>
+                        <li>Developers may face issues when deploying code to different environments due inconsistencies in configuration. </li>
+
+                        </ul>
+
+        </div>
+
+       <p id="solution" onclick="mySolution()">Black box exporter: Collecting System Metrics</p>
+      
+        <ul>
+            <li class="design" id="faster" onclick="myFaster()">Faster and More Frequent Releases</li>
+            <li class="design" id="improved" onclick="myImproved()">Improved Code Quality </li>
+            <li class="design" id="reduced" onclick="myReduced()">Reduced Manual Errors </li>
+            <li class="design" id="increased" onclick="myIncreased()"> Increased Collaboration</li>
+            <li class="design" id="timecost" onclick="myTimecost()"> Time and Cost Savings</li>
+        </ul>
+            <p class="screenshotwala">Screenshot for deployment (CICD) <img src="./images/cicd.png" class="allimage" alt=""></p>
+    </div>
+
+
+
+  <!-- Crisps slides (3) -->
+  <div id="crisps" class="step" data-x="3500" data-y="2000"
+  data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+  data-goto-next-list="icecream-con crisps-pro icecream applepie">
+
+ <h1 type="button" onclick="myMonitoringsetup()">Grafana: Visualization and Alerting </h1>
+        
+ <div id="monitoringsetup" style="display: none;"> 
+     <ul>
+ 
+     <li>DB servers(connection count/load/Materialised view/backup status).</li>
+     <li>Haproxy servers(load/instances status/count request)</li>
+     <li>OCP servers(load/machine status)    </li>
+     <li>API servers(load/instance status/api performance status) </li>
+     
+     <h1>Problem Statement</h1>
+        <li>Monitoring required to identify the problem or service critical status and resolve it quickly.
+        </li>
+        <li>Customers were not getting real-time insights into the health and performance of systems and applications, so mostly they received problems facing mail through users.</li>
+        <li>Problem solving was taking time because manually checking the cause of the problem will take time.</li>
+        <li>Users require monitoring the resources allocated across different components of the setup. This information helps in optimising resource distribution and avoiding resource conflicts.
+        </li>
+        </ul>
+ 
+ </div>
+ 
+        <p id="solutionsnd" onclick="mySeconds()">Setting up Prometheus and Node Exporter</p>
+       
+         <ul>
+             <li class="design" id="Commonit" onclick="myCommont()">Comprehensive Monitoring</li>
+             <li class="design" id="reltimalt" onclick="myReati()">Real-time Alerting </li>
+             <li class="design" id="centdash" onclick="myCentDash()">Centralized Dashboard </li>
+             <li class="design" id="custdasb" onclick="myCustodas()">Customizable Dashboards</li>
+             <li class="design" id="hisdaan" onclick="myHisdaan()"> Historical Data Analysis</li>
+             <li class="design" id="inwinu" onclick="myInwimu()">Integration with Multiple Data Sources </li>
+             <li class="design" id="usfiint" onclick="myUsfri()">User-friendly Interface</li>
+             <li class="design" id="scalid" onclick="myScalid()">Scalability</li>
+             <li class="design" id="coseffe" onclick="myCosteff()">Cost-Effectiveness</li>
+       
+         </ul>
+ 
+
+</div>
+
+
+
+
+
+    <div id="crisps-pro" class="step" data-rel-x="0" data-rel-y="1000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="crisps crisps-con icecream-pro applepie-pro">
+         <h1>Creating Dashboards in Grafana</h1>
+         <div class="monitoringsetup">
+            
+            <a href="images/grafana.png"><img src="images/grafana.png" class="grafan" alt=""></a>
+            <span class="aboutimg">Postgres counts monitoring along with server performance</span>
+            
+
+            <a href="images/grafan2.png"><img src="images/grafan2.png" class="grafan" alt=""></a>
+            <span class="aboutimg">Servers and services monitoring through nagios</span>
+            <a href="images/grafana3.png"> <img src="images/grafana3.png" class="grafan" alt=""></a>
+            <span class="aboutimg">monitoring of MV status in the grafana tool.</span>
+            <a href="images/grafana4.png"><img src="images/grafana4.png" class="grafan" alt=""></a>
+            <span class="aboutimg">APIs need to be monitor as per client requirement</span>
+            <a href="images/grafaan5.png"> <img src="images/grafaan5.png" class="grafan" alt=""></a>
+            <span class="aboutimg">Servers monitoring in grafana</span>
+         
+          
+         </div>
+         
+    </div>
+
+
+    <div id="crisps-con" class="step" data-rel-x="0" data-rel-y="1000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="crisps-pro applepie icecream-con applepie-con">
+         <h1 id="ocpsetup" onclick="myOcpprblemo()"> Setting Alerts in Grafana</h1>
+            <p class="sroblemstatemet" id="problemstatemnt" style="display: none;">Users want to handle the scaling and load balancing of containers and ensure high availability of applications.
+                User wants pod scaling management itself as per the application load.
+                </p>
+            <h4 id="ocpsetup" onclick="myOcpprblem()">OCP Setup</h4>
+
+            <p id="ocpstatement" style="display: none;">OCP, which stands for OpenShift Container Platform, is a Kubernetes-based enterprise container platform developed by Red Hat. It provides a comprehensive set of tools and features for deploying, managing, and scaling containerized applications.</p>
+
+        <ul>
+            <li class="design" id="simplified" onclick="mySimplified()">Simplified Application Deployment</li>
+            <li class="design" id="scalability" onclick="myScalability()">Scalability</li>
+            <li class="design" id="container" onclick="myContainer()">Container Management</li>
+            <li class="design" id="devenbl" onclick="myDevopsenbl()">DevOps Enablement</li>
+            <li class="design" id="applporti" onclick="myApplporti()">Application Portability</li>
+            <li class="design" id="monitoring" onclick="myMonitoring()">Monitoring and Logging</li>
+        </ul>
+        <img src="images/postgres.png"  style="align-items: center; justify-content: center; position: absolute; height: 300px; width: 500px;" alt="" class="ocpimg">
+    </div>
+    
+
+    <!-- Apple pie slides (3) -->
+     <div id="applepie" class="step" data-x="5000" data-y="2000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="crisps-con applepie-pro crisps icecream-pro">
+         <h1 onclick="myElastiproblem()">Conclusion and Q&A</h1>
+         <p id="Problemelastic" style="display: none;">Users require interactive dashboards and visualisations based on data in database, which can present on kibana.
+            User wants to visualise structured and unstructured data as per requirement.
+            Users were not able to represent dashboards on the real-or-live based data.
+            </p>
+         <p id="solution" onclick="myElastolution()"><B>Elasticsearch</B></p>
+
+            <p id="esolution" style="display: none;">Elasticsearch is a powerful and widely-used open-source search and analytics engine. It is built on top of Apache Lucene and is designed to handle large-scale data processing, search, and analysis. Elasticsearch offers a wide range of benefits, making it a popular choice for various applications and use cases.</p>
+         <ul>
+             <li class="design" id="Ab" onclick="myAbcd()">Full-text Search    </li>
+             <li class="design" id="Ac" onclick="myAbdc()">Real-time Data Indexing</li>
+             <li class="design" id="Ad" onclick="myAbce()">Scalability and High Availability</li>
+             <li class="design" id="Ae" onclick="myAbcf()">JSON-based Documents</li>
+             <li class="design" id="Af" onclick="myAbcg()">Aggregation and Analytics </li>
+             <li class="design" id="Ag" onclick="myAbch()">RESTful API  </li>
+             <li class="design" id="Ah" onclick="myAbci()">Open-source and Active Community</li>
+             <li class="design" id="Ai" onclick="myAbcj()">Multi-language Support</li>
+             <li class="design" id="Aj" onclick="myAbck()">Integration with the Elastic Stack </li>
+             <li class="design" id="Ak" onclick="myAbcl()">Near Real-time Analytics </li>
+           </ul>
+          <a href=""> <img src="./images/elastic.jpg" style="display: none;" alt="no name" ></a>
+          <a href=""> <img src="./images/elastic2.jpg" style="display: none;" alt="no name" ></a>
+    </div>
+
+    <div id="applepie-pro" class="step" data-rel-x="0" data-rel-y="1000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="applepie applepie-con crisps-pro icecream-con">
+         <h1>Screenshoot of Elasticsearch</h1>
+            <a href="images/elastic.jpg"><img src="images/elastic.jpg"  class="grafan" alt=""></a>
+            <a href="images/elastic2.jpg"><img src="images/elastic2.jpg" class="grafan" alt=""></a> 
+            </div>
+
+
+    <div id="applepie-con" class="step" data-rel-x="0" data-rel-y="1000"
+         data-goto-key-list="ArrowUp ArrowDown ArrowLeft ArrowRight"
+         data-goto-next-list="applepie-pro conclusion crisps-con conclusion">
+         <h1 onclick="myApiprostat()">Problems </h1>
+
+         <p id="problemapi" style="display: none;">Customer requires API gateway for security at the time of api access with authentication.
+            Request and response count detail required for understanding the requirement.
+            User request loads also need to be monitored.
+            </p>
+         <p id="solution" onclick="mySolutionapi()">APIsix </p>
+                <p id="apisolutio" style="display: none;">APIsix is a high-performance and scalable open-source API gateway that is designed to handle and manage API traffic in a distributed and efficient manner. It provides various features and functionalities that make it suitable for solving specific problems and use cases.</p>
+         <ul>
+             <li class="design" id="abc" onclick="myAbcz()">Microservices Architecture </li>
+             <li class="design" id="abd" onclick="myAbcy()">Load Balancing</li>
+             <li class="design" id="abe" onclick="myAbcx()">Security and Authentication</li>
+             <li class="design" id="abf" onclick="myAbcw()">Caching</li>
+             <li class="design" id="abg" onclick="myAbcv()"> Logging and Monitoring</li>
+             <li class="design" id="abh" onclick="myAbcu()">Analytics and Metrics</li>
+             <li class="design" id="abi" onclick="myAbct()">Service Discovery and Health Checks</li>
+             <li class="design" id="abj" onclick="myAbcs()">API Versioning</li>
+         </ul>
+         
+        
+    </div>
+
+<div id="post" class="step" data-rel-x="1000" data-rel-y="1000">
+
+<h1 id="postgresqlset" onclick="myPostgre()">PostgreSQL setup upgrade latest version</h1>
+
+<p id="postgresqlsetup" style="display: none;">PostgreSQL, often referred to as Postgres, is a powerful open-source relational database management system (RDBMS). It is known for its advanced features, extensibility, and compliance with SQL standards. PostgreSQL supports a wide range of data types, indexing methods, and procedural languages, making it a popular choice for various applications, from small-scale projects to large-scale enterprise systems.</p>
+
+<a href="images/postgressfinal.png"><img src="images/postgressfinal.png" style="align-items: center; justify-content: center;  height: 250px; width: 500px;" alt=""></a>
+
+<h1 onclick="myHaproxyst()">HAProxy (High Availability Proxy)</h1>
+
+<p id="haproxeyst" style="display: none;">    HAProxy (High Availability Proxy) is a free and open-source load balancer and proxy server software that is widely used to distribute incoming application traffic across multiple backend servers or nodes. It offers several benefits, making it a popular choice for improving the performance, reliability, and scalability of web applications.</p>
+
+<a href="images/webserver.png"><img src="images/webserver.png" style="align-items: center; justify-content: center;  height: 250px; width: 500px;" alt=""></a>
+
+</div>
+   
+</div>
+
+<div id="impress-toolbar"></div>
+
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+<div id="impress-help"></div>
+
+<script src="./js/mani.js"></script>
+<script type="text/javascript" src="./js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
+
+

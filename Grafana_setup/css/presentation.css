@@ -1,0 +1,609 @@
+/*
+  A common approach is to use googleapis.com to generate css for the webfonts you want to use.
+  The downside of this approach is that you have to be online. So below I have simply saved
+  the output of the googleapis url into a file. Then you of course also have to make sure
+  the webfonts are locally installed to make offline usage work. For Ubuntu (or Debian) I
+  successfully used the script from here to do that: 
+  http://www.webupd8.org/2011/01/automatically-install-all-google-web.html
+*/
+
+/* @import url(http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic|Cutive+Mono); */
+/* @import url(fonts.css); */
+
+
+
+/*
+    We display a fallback message for users with browsers that don't support
+    all the features required by it. All of the content will be still fully 
+    accessible for them, but some more advanced effects would be missing.
+    When impress.js detects that browser supports all necessary CSS3 features, 
+    the fallback-message style is hidden.
+*/
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+
+/*
+  The body background is the bacgkround of "everything". Many
+  impress.js tools call it the "surface". It could also be a
+  picture or pattern, but we leave it as light gray.
+*/
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 740px;
+   
+    height: 100vh;
+
+}
+
+
+/*
+    Now let's style the presentation steps.
+*/
+
+.step {
+    position: relative;
+    display: block;
+
+    width: 1800px;
+    height: 900px;
+    margin: 20px auto;
+    padding: 50px 70px;
+
+    /* text-shadow: 0 2px 2px rgba(0, 10, 0, .5); */
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    letter-spacing: -1px;
+
+}
+/*
+    Make inactive steps a little bit transparent.
+*/
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.0;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+h1{
+    color: white;
+}
+
+h1, 
+h2, 
+h3 {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin: 0.7em;
+}
+
+li {
+    margin: 0.2em;    
+}
+
+/* Highlight.js used for coloring pre > code blocks. */
+pre > code {
+    font-size: 14px;
+    /* text-shadow: 0 0 0 rgba(0, 0, 0, 0); */
+}
+
+/* Inline code, no Highlight.js */
+code {
+    font-family: "Cutive mono","Courier New", monospace;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+   
+    /* text-shadow: -1px 1px 2px rgba(100,100,100,0.9); */
+    border-radius: 0.2em;
+    border-bottom: 1px solid rgba(100,100,100,0.4);
+    border-left:   1px solid rgba(100,100,100,0.4);
+
+    transition:         0.5s;
+}
+
+
+blockquote {
+    font-family: 'PT Serif';
+    font-style: italic;
+    font-weight: 400;    
+}
+
+
+
+q {
+    font-family: 'PT Serif';
+    font-style: italic;
+    font-weight: 400;    
+    /* text-shadow: 0 2px 2px rgba(0, 0, 0, .3); */
+}
+
+strike {
+    opacity: 0.7;
+}
+
+small {
+    font-size: 0.4em;
+}
+
+img {
+    width: 300px
+}
+
+/****************** Background images **********************************************/
+
+
+img.bg {
+    position: fixed;
+    z-index: -100;
+    opacity: 0;
+    height: 50%;
+    width: auto;
+    transition:  opacity 2s;
+}
+
+#applepie-image {
+    left: 0px;
+    bottom: 0px;
+}
+
+body.impress-on-applepie #applepie-image,
+body.impress-on-applepie-pro #applepie-image,
+body.impress-on-applepie-con #applepie-image,
+body.impress-on-conclusion #applepie-image,
+body.impress-on-overview #applepie-image {
+    opacity: 0.7;
+    transition:  opacity 2s;
+}
+
+#icecream-image {
+    right: 0px;
+    top: 0px;
+}
+
+body.impress-on-icecream #icecream-image,
+body.impress-on-icecream-pro #icecream-image,
+body.impress-on-icecream-con #icecream-image,
+body.impress-on-conclusion #icecream-image,
+body.impress-on-overview #icecream-image {
+    opacity: 0.7;
+    transition:  opacity 2s;
+}
+
+#crisps-image {
+    right: 0px;
+    bottom: 0px;
+}
+
+body.impress-on-crisps #crisps-image,
+body.impress-on-crisps-pro #crisps-image,
+body.impress-on-crisps-con #crisps-image,
+body.impress-on-conclusion #crisps-image,
+body.impress-on-overview #crisps-image {
+    opacity: 0.7;
+    transition:  opacity 2s;
+}
+
+
+/*************** Slide specific things ****************************/
+
+#image-credits {
+    color: #779988;
+}
+
+/* 
+img{
+    text-align: center;
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    justify-content: center;
+    left: 250px;
+} */
+
+
+.moniserve{
+    display: none;
+}
+
+
+#pstatement{
+    display: none;
+}
+
+.design:hover{
+    border: 2px solid black outset;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    font-size: 60px;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+.zoom{
+    position: absolute;
+    justify-content: left;
+}
+
+
+
+
+.allimage{
+    position: absolute;
+    height: 70px ;
+    width: 80px;
+    top: 400px;
+   left: 1200px;
+}
+
+
+
+
+.allimage:hover{
+    height: 400px;
+    width: 1000px;
+    left: 1000px;
+}
+
+
+#ocpsetup{
+    text-align: center;
+}
+
+
+h1{
+    height: auto;
+    width: 100%;
+    background-color: #202A44;
+    border:  2px solid black;
+    box-shadow: 2px 2px 3px 4px inset white;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+ul{
+    height: auto;
+    width: 100%;
+    box-shadow: 2px 2px 3px 4px inset white;
+    justify-content: center;
+   margin: 20px;
+}
+.ingr{
+    position: absolute;
+    top: 400px;
+}
+
+
+.grafan {
+    position: relative;
+    right: -400px;
+    margin: 30px;
+    height: 300px;
+    width: 400px;
+    list-style-type: none;
+    border: 2px white solid outset;
+}
+
+.keychprar:hover {
+    color: red;
+}
+
+.aboutimage {
+    font-size: 20px;
+}
+
+.aboutimg {
+    font-size: 20px;
+    position: absolute;
+}
+
+/* Styles for diamond shapes */
+.diamond-shape {
+    background: #e00000;
+    height: 60px;
+    text-align: center;
+    transform: rotate(45deg);
+    width: 60px;
+}
+
+.item-count {
+    color: #333;
+    display: table-cell;
+    height: 60px;
+    transform: rotate(-45deg);
+    vertical-align: middle;
+    width: 60px;
+}
+
+/*start  Styles for group members and first page */
+.groupmember tr td {
+    text-align: center;
+    margin: 20px;
+    padding: 10px; /* Adjust the padding as needed */
+    
+}
+.groupmember{
+    position: absolute;
+    top: 600px;
+    right: 150px;
+}
+
+.maam {
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.presented{
+    position: absolute;
+    left: 300px;
+    top: 500px;
+    width: 550px;
+    height: 100px;
+    color: black;
+    font-size: 80px;
+    text-shadow: 2px 3px 4px yellow;
+    font-weight: bold;
+    animation: himanshu 1s ease infinite;
+}
+
+/* Styles for individual members */
+.taj, .himanshu, .ankur, .manish, .amit {
+    width: 500px;
+    background-color: red;
+}
+
+.taj {
+    background-color: #085F63;
+    color: white;
+    animation: taj 1s ease infinite;
+}
+.taj:hover{
+    width: 550px;
+    height: 100px;
+}
+
+.himanshu {
+    background-color: #0E2F56;
+    animation: himanshu 1s ease infinite;
+}
+.himanshu:hover{
+    width: 550px;
+    height: 100px;
+}
+
+.ankur {
+    background-color: #FCCF4D;
+    animation: ankur 1s ease infinite;
+}
+.ankur:hover{
+    width: 550px;
+    height: 100px;
+    
+}
+
+.manish {
+    background-color: #FF5335;
+    animation: manish 1s ease infinite;
+}
+
+.manish:hover{
+    width: 550px;
+    height: 100px;
+}
+
+.amit {
+    background-color: #453324;
+    animation: amit 1s ease infinite;
+}
+
+.amit:hover{
+    width: 550px;
+    height: 100px;
+}
+
+.grafanawater img{
+    position: absolute;
+    top: 200px;
+    right: 350px;
+    opacity: 0.1;
+    height: 900px;
+    width: 1200px;
+    
+}
+
+#grafanadif{
+    font-size: 40px;
+    text-align: center;
+    margin: 40px;
+}
+#ingrastructurem{
+    position: absolute;
+    text-align: center;
+    font-size: 40px;
+    margin: 20px;
+   top: 220px;
+   left: 0px;
+}
+
+  @keyframes taj{
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+
+@keyframes amit{
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+
+@keyframes manish{
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+
+@keyframes ankur{
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+
+@keyframes himanshu{
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+/* end  Styles for group members and first page */
+
+
+.arrow{
+    font-size: 40px;
+}
+
+.agenda{
+   margin: 60px;
+} 
+
+.cont{
+  transition: transform .2s; /* Animation */
+  width: 700px;
+  margin: 0 auto;
+  height: 60px;
+}
+
+.cont:hover{
+    width: 720px;
+    height: 100px;
+    transform: scale(1.5);
+}
+
+.agenda, th, td {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    text-align: center;
+  }
+/* end agenda */
+
+
+/* start about grafana */
+
+
+/* 
+.screenshotwala{
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+
+.screenshotwala:hover{
+    position: relative;
+    right: 0;
+    top: 0px;
+} */
+
+
+@keyframes bling{
+    
+}
+
+
+
+
+
+  .container{
+    display: inline-block;
+  }
+  .typed-out{
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    animation: 
+      typing 5s forwards;
+    font-size: 1.6rem;
+    width: 0;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  } 
+
+
+
+  /* start image all images */
+
+  .image1{
+    position: absolute;
+    top: 400px;
+    left: 750px;
+  }
